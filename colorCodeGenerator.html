@@ -61,6 +61,33 @@
             <br>
             <h3 id="showvalue"> </h3>
         </div>
+
+        <!-- adding javascript-->
+        <script>
+            const color1 = document.getElementById('color1');
+            const color2 = document.getElementById('color2');
+            const bodybg = document.getElementById('bodybg');
+
+            //console.log(color1.value)
+            //color1.addEventListener('input', callback: addEventListener,capture?:boolean)
+            //console.log(color1)
+
+            // creating an anonymous function 
+            color1.addEventListener('input',function(){
+                //console.log(color1.value);
+                //the value we are getting at the input must be passed to the css #bodybg
+                //background: linear-gradient(to right,red,yellow)
+                //changing css style via javascript thus define bodybg variable
+                //`background: linear-gradient(to right,red,yellow)`
+                // replace red with the external value  ${color1.value}
+                bodybg.style.background = `linear-gradient(to right,${color1.value},${color2.value})`;
+            });
+            color2.addEventListener('input',function(){
+                //`background: linear-gradient(to right,red,yellow)`
+                // replace red with the external value  ${color2.value}
+                bodybg.style.background = `linear-gradient(to right,${color1.value},${color2.value})`;
+            });
+        </script>
     </body>
 
 
