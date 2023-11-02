@@ -13,7 +13,7 @@
                 width:100%;
                 height: 100vh;
                 position: relative;
-                background: linear-gradient(to right,#ff0000,#ffff00);
+                background: linear-gradient(to right,red,yellow);
             }
             #centerdiv{
                 width: 100%;
@@ -55,11 +55,11 @@
             <h2> PICK THE COLOR </h2>
             <br>
             <br>
-            <input type="color" name="" id="color1" value="#ff0000">
-            <input type="color" name="" id="color2" value="#ffff00">
+            <input type="color" name="" id="color1" value="">
+            <input type="color" name="" id="color2" value="">
             <br>
             <br>
-            <h3 id="showCode"> </h3>
+            <h3 id="showvalue"> </h3>
         </div>
 
         <!-- adding javascript-->
@@ -67,24 +67,40 @@
             const color1 = document.getElementById('color1');
             const color2 = document.getElementById('color2');
             const bodybg = document.getElementById('bodybg');
-            const showColorCode = document.getElementById('showCode');
+
+            //console.log(color1.value)
+            //color1.addEventListener('input', callback: addEventListener,capture?:boolean)
+            //console.log(color1)
+
+            // creating an anonymous function 
+            
+            /*color1.addEventListener('input',function(){
+                //console.log(color1.value);
+                //the value we are getting at the input must be passed to the css #bodybg
+                //background: linear-gradient(to right,red,yellow)
+                //changing css style via javascript thus define bodybg variable
+                //`background: linear-gradient(to right,red,yellow)`
+                // replace red with the external value  ${color1.value}
+                bodybg.style.background = `linear-gradient(to right,${color1.value},${color2.value})`;
+            });
+            color2.addEventListener('input',function(){
+                //`background: linear-gradient(to right,red,yellow)`
+                // replace red with the external value  ${color2.value}
+                bodybg.style.background = `linear-gradient(to right,${color1.value},${color2.value})`;
+            });*/
 
             //Do not repeat your code
             function setbgcolour()
             {
                 bodybg.style.background = `linear-gradient(to right,${color1.value},${color2.value})`;
-
-                showColorCode.textContent = `The color code is : linear-gradient(to right,${color1.value},${color2.value})` ;
             }
             color1.addEventListener('input',setbgcolour);
             color2.addEventListener('input',setbgcolour);
-            
-            
 
-
+            // passing value to the html -- using showdata.textContent
+            showColorCode.textContent = `linear-gradient(to right,${color1.value},${color2.value})` ;
         </script>
     </body>
 
 
 </html>
-//Done 02-11-2023 23.08p.m.
